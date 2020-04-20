@@ -1,0 +1,23 @@
+let lokalData =[];
+    const dataCities = JSON.parse(data);
+    for (const key in dataCities) {
+        if (dataCities.hasOwnProperty(key)) {
+            lokalData.push(dataCities[key].name);
+        }
+    }
+    cities = lokalData.filter((item)=>{
+        return  item != null;
+    }).sort();
+    console.log(cities);
+
+
+    getData(proxy+citiesApi+'?depart_date=2020-05-25&origin=SVX&destination=KGD&one_way=true&token='+API_KEY,(data)=>{
+    const cheapTicket = JSON.parse(data).best_prices.filter(item=>item.depart_date === '2020-05-29');
+    console.log(cheapTicket);
+    });
+
+inputData.addEventListener('input',()=>{
+    console.log(inputData.value);
+})
+
+const city = ['Москва','Самара','Київ','Львів','Суми','Хмельницький','Чернівці','Луцьк','Житомир','Рівне','Тернопіль','Івано-Франківськ','Вінниця','Черкаси','Одеса','Полтава','Херсон','Запоріжжя','Дніпро'];
